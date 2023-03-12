@@ -1,4 +1,5 @@
 import 'dart:html';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
@@ -12,9 +13,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return const MaterialApp( //Matareal app
       debugShowCheckedModeBanner: false,
-      home: Prac3(),
+      home: prac6(), //call for prac 4
       
       
       
@@ -106,28 +107,38 @@ class Prac3 extends StatelessWidget {
           
           ],
       ),
-      body: SingleChildScrollView
+      body: ListView
       (
-        child: Column(
+      
           children:[
             Container(
-              height: 500.0,
+              height: 100.0,
               width: double.infinity,
               color: Colors.blueGrey,
             ),
             Container(
-              height: 500.0,
+              height: 100.0,
               width: double.infinity,
               color: Color.fromARGB(255, 160, 15, 100),
             ),
             Container(
-              height: 500.0,
+              height: 100.0,
               width: double.infinity,
               color: Color.fromARGB(255, 24, 201, 112),
+            ),
+             Container(
+              height: 100.0,
+              width: double.infinity,
+              color: Color.fromARGB(255, 236, 9, 28),
+            ),
+             Container(
+              height: 100.0,
+              width: double.infinity,
+              color: Color.fromARGB(255, 119, 141, 130),
             )
           ]
         ),
-      ),
+      );
       // drawer: Container(
       //   child: Container(
       //     child: Text('Hello World'),
@@ -143,7 +154,84 @@ class Prac3 extends StatelessWidget {
       //   backgroundColor: Colors.grey,
         
       //   ),
+
+
+  }
+  
+}
+class parc4 extends StatelessWidget {
+  const parc4({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var height =MediaQuery.of(context).size.height;
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        child: Scaffold(
+          body: Center(
+            
+
+            child: Container(
+              height: MediaQuery.of(context).size.height/2,
+              width: MediaQuery.of(context).size.width/1,
+              color: Color.fromRGBO(3, 114, 49, 0.856),
+              child: const Center(
+                
+                child: Text('Bangladesh....',
+              style: TextStyle(
+                
+                color: Color.fromARGB(255, 194, 191, 10),
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
+              ),
+              ),
+              )
+            )),
+        ),
+      ),
     );
+    
+    
   }
 }
+// class parc5 extends StatelessWidget {
+//   const parc5({Key? key}) : super(key: key);
 
+//   @override
+//   Widget build(BuildContext context) {
+//     height: MediaQuery.of(context).size.height;
+    
+    
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: SafeArea(
+//         child: Scaffold(
+//           body: Center(
+//             child: Image.asset("images/parot.jpeg"),
+
+//           ),
+//         ),
+//       ),
+    
+//     );
+    
+//   }
+// }
+class prac6 extends StatelessWidget {
+  const prac6({Key? key}) : super(key: key);
+
+  MySnackBar(String message,BuildContext context){
+    return ScaffoldMessenger.of(context)
+    .showSnackBar(SnackBar(content: Text(message)));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child:Image.network("https://www.google.com/search?q=png+picture&rlz=1C1FNES_enBD1043BD1043&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiKj66s29X9AhU-BLcAHVQTAeQQ0pQJegQIBRAC&cshid=1678600853736423&biw=1360&bih=657#imgrc=pB0s0eckv8nRIM") ),
+    );
+    
+  }
+}
