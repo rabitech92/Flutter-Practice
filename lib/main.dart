@@ -2,6 +2,11 @@ import 'dart:html';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:liquid_swipe/liquid_swipe.dart';
+import 'package:test_project/abc.dart';
+import 'package:test_project/def.dart';
+import 'package:test_project/ghi.dart';
+import 'package:test_project/gridView.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp( //Matareal app
       debugShowCheckedModeBanner: false,
-      home: prac6(), //call for prac 4
+      home: Prac2(), //call for prac 4
       
       
       
@@ -195,31 +200,32 @@ class parc4 extends StatelessWidget {
     
   }
 }
-// class parc5 extends StatelessWidget {
-//   const parc5({Key? key}) : super(key: key);
+class parc5 extends StatelessWidget {
+  const parc5({Key? key}) : super(key: key);
 
-//   @override
-//   Widget build(BuildContext context) {
-//     height: MediaQuery.of(context).size.height;
+  @override
+  Widget build(BuildContext context) {
+    height: MediaQuery.of(context).size.height;
     
     
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       home: SafeArea(
-//         child: Scaffold(
-//           body: Center(
-//             child: Image.asset("images/parot.jpeg"),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        child: Scaffold(
+          body: Center(
+            child: Image.asset("images/parot.jpeg"),
 
-//           ),
-//         ),
-//       ),
+          ),
+        ),
+      ),
     
-//     );
+    );
     
-//   }
-// }
+  }
+}
 class prac6 extends StatelessWidget {
   const prac6({Key? key}) : super(key: key);
+
 
   MySnackBar(String message,BuildContext context){
     return ScaffoldMessenger.of(context)
@@ -232,6 +238,51 @@ class prac6 extends StatelessWidget {
       body: Center(
         child:Image.network("https://www.google.com/search?q=png+picture&rlz=1C1FNES_enBD1043BD1043&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiKj66s29X9AhU-BLcAHVQTAeQQ0pQJegQIBRAC&cshid=1678600853736423&biw=1360&bih=657#imgrc=pB0s0eckv8nRIM") ),
     );
+    
+  }
+}
+class list extends StatelessWidget {
+  const list({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        child:Scaffold(
+          body: ListView(
+            children: [
+              
+            ],
+          ),
+        ) ),
+
+    );
+    
+  }
+}
+class swipPage extends StatelessWidget {
+  const swipPage({Key? key}) : super(key: key);
+
+  MySnackBar(String message,BuildContext context){
+    return ScaffoldMessenger.of(context)
+    .showSnackBar(SnackBar(content: Text(message)));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final pages =[
+      abc(),
+      def(),
+      ghi()
+    ];
+    return MaterialApp(
+    home: Scaffold(
+      body: LiquidSwipe(pages:pages),
+    
+  ),
+  debugShowCheckedModeBanner: false,
+);
     
   }
 }
